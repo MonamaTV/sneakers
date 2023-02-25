@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./output.css" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>E-commerce product page</title>
+  </head>
+  <body>
+    <header
+      class="md:w-[1200px] container mx-auto px-4 bg-[hsl(0%, 0%, 100%)] flex justify-between border-b"
+    >
+      <div class="flex justify-between items-center h-[80px]">
+        <img src="../images/logo.svg" alt="logo" class="w-24" />
+        <nav class="ml-10 text-[15px] hidden md:block">
+          <ul class="flex flex-row space-x-5 text-gray-600">
+            <li class="hover:border-b-[red] h-full">
+              <a href="">Collections</a>
+            </li>
+            <li><a href="#">Men</a></li>
+            <li><a href="#">Women</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="flex flex-row space-x-4 md:space-x-10 items-center">
+        <button class="relative" id="toggle-cart">
+          <div class="relative">
+            <img src="../images/icon-cart.svg" class="w-5" alt="Cart" />
+            <span
+              id="items-length"
+              class="absolute bg-primary text-xs text-center flex items-center justify-center text-white rounded-[50%] bottom-3 left-3"
+            ></span>
+          </div>
+          <div
+            id="cart"
+            class="absolute -left-[300px] md:-left-40 top-16 md:top-10 bg-white rounded-md min-h-[200px] w-[380px] md:w-72 border shadow-lg border-gray-200 hidden"
+          >
+            <div class="w-full border-b border-gray-300 py-3 flex px-4">
+              <h4 class="font-semibold text-sm">Cart</h4>
+            </div>
+            <div class="" id="parent">
+              <div class="p-4 flex flex-col" id="info"></div>
+            </div>
+          </div>
+        </button>
+        <img
+          src="../images/image-avatar.png"
+          class="w-7 md:w-10 rounded-full border-2 hover:border-primary"
+          alt="Avatar"
+        />
+      </div>
+    </header>
+    <!-- The modal -->
+    <div
+      id="modal"
+      class="bg-slate-900 fixed top-0 left-0 h-screen w-screen items-center justify-center flex-col hidden z-30 bg-opacity-80"
+    >
+      <img
+        id="closeBtn"
+        src="../images/icon-close.svg"
+        class="w-4 relative bottom-5 left-48 cursor-pointer hover:invert"
+      />
+      <div class="flex flex-row items-center">
+        <span
+          id="prevImg"
+          class="bg-white w-10 h-10 rounded-[50%] flex items-center justify-center px-4 py-5 relative left-5 cursor-pointer select-none hover:bg-orange-300"
+        >
+          <img src="../images/icon-previous.svg" class="w-4 h-3" />
+        </span>
+
+        <img
+          id="modal-cover"
+          src="../images/image-product-1.jpg"
+          class="w-[25rem] rounded-2xl"
+        />
+        <span
+          id="nextImg"
+          class="hover:bg-orange-300 bg-white w-10 h-10 rounded-[50%] flex items-center justify-center px-4 py-5 relative right-5 cursor-pointer select-none"
+        >
+          <img src="../images/icon-next.svg" class="w-4 h-3" />
+        </span>
+      </div>
+
+      <div class="flex">
+        <img
+          src="../images/image-product-1-thumbnail.jpg"
+          class="w-20 rounded-lg mx-2 my-5 hover:opacity-50"
+        />
+        <img
+          src="../images/image-product-2-thumbnail.jpg"
+          class="w-20 rounded-lg mx-2 my-5 hover:opacity-50"
+        />
+        <img
+          src="../images/image-product-3-thumbnail.jpg"
+          class="w-20 rounded-lg mx-2 my-5 hover:opacity-50"
+        />
+        <img
+          src="../images/image-product-4-thumbnail.jpg"
+          class="w-20 rounded-lg mx-2 my-5 hover:opacity-50"
+        />
+      </div>
+    </div>
+
+    <main
+      class="flex flex-col md:flex-row item md:my-10 items-center md:w-[1200px] mx-auto"
+    >
+      <div class="md:w-[600px] md:px-10 h-[300px] md:h-full w-full">
+        <img
+          id="cover"
+          src="../images/image-product-1.jpg"
+          alt="Cover"
+          class="md:rounded-2xl cursor-pointer h-full w-full object-cover"
+        />
+        <div class="hidden md:flex justify-between my-5" id="previews">
+          <img
+            src="../images/image-product-1-thumbnail.jpg"
+            class="border-2 border-primary opacity-30 w-24 rounded-lg"
+            onclick="viewImage(this, 1)"
+          />
+          <img
+            src="../images/image-product-2-thumbnail.jpg"
+            class="border-2 w-24 rounded-lg hover:opacity-50"
+            onclick="viewImage(this, 2)"
+          />
+          <img
+            src="../images/image-product-3-thumbnail.jpg"
+            class="border-2 w-24 rounded-lg hover:opacity-50"
+            onclick="viewImage(this, 3)"
+          />
+          <img
+            src="../images/image-product-4-thumbnail.jpg"
+            class="border-2 w-24 rounded-lg hover:opacity-50"
+            onclick="viewImage(this, 4)"
+          />
+        </div>
+      </div>
+      <div class="flex flex-col container md:w-[500px] px-5 md:px-10">
+        <h3 class="text-primary font-bold uppercase my-3" id="category">
+          Sneaker Company
+        </h3>
+        <h2 class="text-3xl font-bold" id="name">
+          Fall Limited Edition Sneakers
+        </h2>
+        <p class="my-4 text-gray-400 text-sm" id="description">
+          These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they’ll withstand everything
+          the weather can offer.
+        </p>
+        <h4 class="font-bold text-lg" id="price">
+          R125.00
+          <span
+            id="sale"
+            class="bg-secondary rounded-lg text-primary px-1 py-1 text-sm"
+            >50%</span
+          >
+        </h4>
+        <h5
+          class="text-gray-400 font-semibold text-sm line-through"
+          id="old-price"
+        >
+          R250.00
+        </h5>
+        <div class="flex my-6 md:flex-row flex-col gap-y-4">
+          <div
+            class="bg-gray-100 md:w-32 flex items-center justify-around rounded-lg w-full py-3"
+          >
+            <button id="decrCart">
+              <img src="../images/icon-minus.svg" />
+            </button>
+            <span class="font-semibold text-gray-700" id="items">0</span>
+            <button id="incrCart"><img src="../images/icon-plus.svg" /></button>
+          </div>
+          <button
+            id="addToCart"
+            class="bg-primary w-full md:w-52 flex items-center text-center justify-center text-white py-3 rounded-lg md:mx-5 font-semibold text-sm shadow-orange-300 shadow-sm hover:bg-orange-300"
+          >
+            <img src="../images/icon-cart.svg" class="w-4 mr-4" /> Add to cart
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- <div class="bg-slate-600 h-40 text-red-700">
+      Bootcamp 2023 by
+      <a href="https://www.mlab.co.za" target="_blank">CodeTribe</a>. Developed
+      by <a href="#">Your Name Here and link to your portfolio website</a>.
+    </div> -->
+
+    <script src="./app.js"></script>
+  </body>
+</html>
+
+<!-- Source Frontend Mentor: https://www.frontendmentor.io -->
