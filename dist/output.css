@@ -1155,6 +1155,10 @@ html {
     top: 2.5rem;
   }
 
+  .md\:z-20{
+    z-index: 20;
+  }
+
   .md\:mx-5{
     margin-left: 1.25rem;
     margin-right: 1.25rem;
