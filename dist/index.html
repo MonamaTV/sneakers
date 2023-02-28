@@ -20,9 +20,23 @@
       class="md:w-[1200px] container mx-auto px-4 bg-[hsl(0%, 0%, 100%)] flex justify-between border-b"
     >
       <div class="flex justify-between items-center h-[80px]">
+        <img
+          src="../images/icon-menu.svg"
+          alt="menu"
+          class="w-3 md:hidden mr-2"
+          id="open-menu"
+        />
         <img src="../images/logo.svg" alt="logo" class="w-24" />
-        <nav class="ml-10 text-[15px] hidden md:block">
-          <ul class="flex flex-row space-x-5 text-gray-600">
+        <nav
+          id="nav"
+          class="md:ml-10 text-[15px] hidden md:block h-screen w-52 md:h-auto md:w-auto absolute md:relative left-0 top-0 bg-white pt-10 md:pt-0"
+        >
+          <ul
+            class="flex flex-col md:flex-row md:space-x-5 space-y-3 text-gray-600 pl-10 font-normal font-semibold md:font-normal"
+          >
+            <button class="md:hidden" id="close-menu">
+              <img src="../images/icon-close.svg" />
+            </button>
             <li class="hover:border-b-[red] h-full">
               <a href="">Collections</a>
             </li>
@@ -115,13 +129,26 @@
     <main
       class="flex flex-col md:flex-row item md:my-10 items-center md:w-[1200px] mx-auto"
     >
-      <div class="md:w-[600px] md:px-10 h-[300px] md:h-full w-full">
+      <div class="md:w-[600px] md:px-10 h-[300px] md:h-full w-full relative">
+        <span
+          id="prev-img-mobile"
+          class="bg-white w-10 h-10 rounded-[50%] flex items-center justify-center px-4 py-5 left-5 cursor-pointer select-none hover:bg-orange-300 md:hidden absolute top-28"
+        >
+          <img src="../images/icon-previous.svg" class="w-4 h-3" />
+        </span>
         <img
           id="cover"
           src="../images/image-product-1.jpg"
           alt="Cover"
           class="md:rounded-2xl cursor-pointer h-full w-full object-cover"
         />
+        <span
+          id="next-img-mobile"
+          class="hover:bg-orange-300 bg-white w-10 h-10 rounded-[50%] flex items-center justify-center px-4 py-5 absolute top-28 right-5 cursor-pointer select-none md:hidden"
+        >
+          <img src="../images/icon-next.svg" class="w-4 h-3" />
+        </span>
+
         <div class="hidden md:flex justify-between my-5" id="previews">
           <img
             src="../images/image-product-1-thumbnail.jpg"

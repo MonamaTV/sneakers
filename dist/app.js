@@ -138,3 +138,38 @@ toggle.addEventListener("click", function () {
   document.querySelector("#items-cart").textContent = value;
   document.querySelector("#total").textContent = "R" + 125 * value;
 });
+
+// Toggle mobile menu
+document.querySelector("#open-menu").addEventListener("click", function () {
+  document.querySelector("#nav").classList.toggle("hidden");
+});
+document.querySelector("#close-menu").addEventListener("click", function () {
+  document.querySelector("#nav").classList.toggle("hidden");
+});
+
+//Buttons for traversing the image array
+const prev = document.querySelector("#prev-img-mobile");
+const next = document.querySelector("#next-img-mobile");
+
+//This keeps track of the current image on the modal
+//The button displays the prev image in the array.
+prev.addEventListener("click", function () {
+  if (currentImg !== 0) {
+    --currentImg;
+    document.querySelector("#cover").src = srcs[currentImg];
+  } else {
+    currentImg = 3;
+    document.querySelector("#cover").src = srcs[srcs.length - 1];
+  }
+});
+
+//The button on the modal which displays the next img in the array, if it hits the last one, it shows the first one in the array.
+next.addEventListener("click", function () {
+  if (currentImg !== srcs.length - 1) {
+    ++currentImg;
+    document.querySelector("#cover").src = srcs[currentImg];
+  } else {
+    currentImg = 0;
+    document.querySelector("#cover").src = srcs[0];
+  }
+});
